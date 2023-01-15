@@ -1,35 +1,57 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react'
 import HomeScreen from './screens/HomeScreen';
-import TestScreen from './screens/TestScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import { FontAwesome } from '@expo/vector-icons'
+
+import { useNavigation } from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
+    const navigation = useNavigation();
     return (
         <Stack.Navigator>
+            {/* Home Screen */}
             <Stack.Screen 
-                name="Home" 
+                name="MusicMatch" 
                 component={HomeScreen}
                 options={{
                     headerStyle: {
-                        backgroundColor: 'black',
+                        backgroundColor: 'white',
                     },
                     headerTitleStyle: {
-                        color: 'white',
-                    }
+                        color: 'black',
+                    },
+                    footerStyle: {
+                        backgroundColor: 'white',
+                    },
+                    headerRight: () => (
+                        <FontAwesome.Button 
+                            name="gear"
+                            backgroundColor={'white'}
+                            color={'black'}
+                            size={25}
+                            onPress={() => navigation.navigate("Settings")}
+                        />
+                    )
                 }}
-                />
+            />
+
+            {/* Page 2 */}
             <Stack.Screen 
-                name="Test" 
-                component={TestScreen}
+                name="Settings" 
+                component={SettingsScreen}
                 options={{
                     headerStyle: {
-                        backgroundColor: 'black',
+                        backgroundColor: 'white',
                     },
                     headerTitleStyle: {
-                        color: 'white',
-                    }
+                        color: 'black',
+                    },
+                    footerStyle: {
+                        backgroundColor: 'white',
+                    },
                 }}
             />
         </Stack.Navigator>
