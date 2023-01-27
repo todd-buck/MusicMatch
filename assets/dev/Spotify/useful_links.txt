@@ -1,0 +1,2 @@
+This scripts uses spotipy to remove tracks from Spotify's "Liked Songs" playlist.
+https://gist.github.com/LucasWaelti/0dace9ea3094d6ce272ae444d91eba68

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { TouchableOpacity, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { ListItem, Icon } from '@rneui/themed'
 
@@ -7,6 +7,20 @@ import { useNavigation } from '@react-navigation/native';
 
 const SettingsScreen = () => {
     const navigation = useNavigation();
+    navigation.setOptions ({
+        headerLeft: () => (
+            <TouchableOpacity>
+                <FontAwesome.Button 
+                    name="home"
+                    backgroundColor={'white'}
+                    color={'black'}
+                    size={25}
+                    onPress={() => navigation.navigate("MusicMatch")}
+                />
+            </TouchableOpacity>
+        )
+    })
+
     const [Setting1checked, Setting1setChecked] = React.useState([false, false]);
     const [Setting2checked, Setting2setChecked] = React.useState([false, false]);
     return (
